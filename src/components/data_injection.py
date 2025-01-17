@@ -11,6 +11,9 @@ import pandas as pd
 
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
+from src.components.data_transformation import DataTransformation
+from src.components.data_transformation import DataTransformationConfig
+
 
 # inside a class to define class variable you have to use __init__ but with decorator class which is here @dataclass
 #you can directly define the varaiable
@@ -55,4 +58,7 @@ class DataInjection:
         
 if __name__ == "__main__":
     obj=DataInjection()
-    obj.initiate_data_injection()
+    train_data, test_data = obj.initiate_data_injection()
+
+    data_tranformation = DataTransformation()
+    data_tranformation.initiate_data_transformation(train_data, test_data)
